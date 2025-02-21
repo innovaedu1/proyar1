@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visor AR</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 </head>
-<body>
-    <a-scene>
-        <a-image src="https://i.postimg.cc/q7zF8Md4/62a9077489f7027d2d76169b.jpg" 
-                 position="0 1 -3" width="2" height="2">
-        </a-image>
-        <a-camera position="0 1.6 0"></a-camera>
+<body style="margin: 0; overflow: hidden;">
+    <!-- Escena de AR -->
+    <a-scene embedded arjs>
+        <!-- Definir el marcador QR -->
+        <a-marker type="barcode" value="10">
+            <!-- La imagen que aparecerá cuando se detecte el marcador -->
+            <a-image src="https://i.postimg.cc/q7zF8Md4/62a9077489f7027d2d76169b.jpg" 
+                     position="0 0 0" width="2" height="2">
+            </a-image>
+        </a-marker>
+
+        <!-- Cámara para ver la AR -->
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 </html>
